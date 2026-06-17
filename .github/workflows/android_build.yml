@@ -18,10 +18,13 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
           cache: 'gradle'
-      - run: chmod +x gradlew
-      - run: ./gradlew test
-      - run: ./gradlew lintDebug
-      - run: ./gradlew assembleDebug
+      - name: Gradle Kur
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - run: gradle test
+      - run: gradle lintDebug
+      - run: gradle assembleDebug
       - uses: actions/upload-artifact@v4
         with:
           name: kurdi-debug-apk
@@ -40,8 +43,11 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
           cache: 'gradle'
-      - run: chmod +x gradlew
-      - run: ./gradlew assembleRelease
+      - name: Gradle Kur
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - run: gradle assembleRelease
       - uses: softprops/action-gh-release@v2
         with:
           files: app/build/outputs/apk/release/app-release-unsigned.apk
