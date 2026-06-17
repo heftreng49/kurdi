@@ -1,0 +1,108 @@
+{
+  "unit_id":    "u01_tanisma",
+  "unit_order": 1,
+  "unit_title": { "kurmanci": "Silaftî û Naskirin", "sorani": "سلاوکردن و ناسیاوی" },
+  "vocabulary": [
+    {
+      "word_id": "w01_01",
+      "kurmanci_latin": "Silav",
+      "sorani_arami": "سلاو",
+      "phonetic_kurmanci": "Sı-lav",
+      "phonetic_sorani": "Sıl-aw",
+      "meaning_tr": "Merhaba",
+      "audio_url": { "kurmanci": null, "sorani": null },
+      "description": {
+        "kurmanci": "Ji bo silavdanîna giştî tê bikaranîn.",
+        "sorani": "بۆ سلاوکردنی گشتی بەکاردێت."
+      }
+    },
+    {
+      "word_id": "w01_02",
+      "kurmanci_latin": "Tu çawa yî?",
+      "sorani_arami": "تۆ چۆنیت؟",
+      "phonetic_kurmanci": "Tı çawa yî",
+      "phonetic_sorani": "To çonît",
+      "meaning_tr": "Nasılsın?",
+      "audio_url": { "kurmanci": null, "sorani": null },
+      "description": {
+        "kurmanci": "Pirsiyariya rewşa kesê beramber e.",
+        "sorani": "پرسیارکردنە لە دۆخی کەسی بەرامبەر."
+      }
+    },
+    {
+      "word_id": "w01_03",
+      "kurmanci_latin": "Spas dikim",
+      "sorani_arami": "سوپاس دەکەم",
+      "phonetic_kurmanci": "Spas dıkım",
+      "phonetic_sorani": "Supas dekem",
+      "meaning_tr": "Teşekkür ederim",
+      "audio_url": { "kurmanci": null, "sorani": null },
+      "description": {
+        "kurmanci": "Ji bo nîşandana minetdariyê.",
+        "sorani": "بۆ نیشاندانی سوپاسگوزاری."
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question_id": "q01_01",
+      "type": "multiple_choice",
+      "level": "easy",
+      "yonege": {
+        "kurmanci": "Wateya peyva Soranî ya diyarkirî bi Kurmancî nîşan bide:",
+        "sorani": "واتای وشەی کورمانجی دیاریکراو بە سۆرانی نیشان بدە:"
+      },
+      "target_word": {
+        "kurmanci_user_sees": "سلاو",
+        "sorani_user_sees": "Silav"
+      },
+      "options": {
+        "for_kurmanci_user": ["Rojbaş", "Silav", "Spas", "Şevbaş"],
+        "for_sorani_user": ["سلاو", "بەیانی باش", "سوپاس", "شەو باش"]
+      },
+      "correct_index": { "kurmanci": 1, "sorani": 0 }
+    },
+    {
+      "question_id": "q01_02",
+      "type": "true_false",
+      "level": "easy",
+      "yonege": {
+        "kurmanci": "Gelo ev hevwateya jêrê rast e?",
+        "sorani": "ئایا ئەم هاوواتایەی خوارەوە ڕاستە؟"
+      },
+      "statement": {
+        "kurmanci": "Hevwateya 'تۆ چۆنیت؟' bi Kurmancî 'Tu çawa yî?' ye.",
+        "sorani": "هاوواتای 'Tu çawa yî?' بە سۆرانی 'تۆ چۆنیت؟'ە."
+      },
+      "correct_answer": true
+    },
+    {
+      "question_id": "q01_03",
+      "type": "fill_in_the_blank",
+      "level": "medium",
+      "yonege": {
+        "kurmanci": "Cihê vala bi gerdîşa rast tije bike:",
+        "sorani": "جێگای بەتاڵ بە شێوازی ڕاست پڕ بکەرەوە:"
+      },
+      "sentence": {
+        "kurmanci": { "prefix": "Tu çawa ", "suffix": "?" },
+        "sorani":   { "prefix": "تۆ ",      "suffix": "؟" }
+      },
+      "correct_blank": { "kurmanci": "yî", "sorani": "چۆنیت" }
+    },
+    {
+      "question_id": "q01_04",
+      "type": "word_matching",
+      "level": "medium",
+      "yonege": {
+        "kurmanci": "Peyvên hevwate yên Kurmancî û Soranî li hev bîne:",
+        "sorani": "وشە هاوواتاکانی کورمانجی و سۆرانی ڕێکبخە:"
+      },
+      "pairs": [
+        { "kurmanci": "Silav",    "sorani": "سلاو" },
+        { "kurmanci": "Rojbaş",  "sorani": "بەیانی باش" },
+        { "kurmanci": "Spas",    "sorani": "سوپاس" }
+      ]
+    }
+  ]
+}
