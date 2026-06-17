@@ -1,126 +1,93 @@
 {
-  "unit_id": "u02_alfabe",
+  "unit_id": "u01_alfabe",
   "unit_order": 2,
   "unit_title": { 
-    "kurmanci": "Tîpên Kurdî (Kurmancî û Soranî)", 
-    "sorani": "پیتەکانی کوردی (کورمانجی و سۆرانی)" 
+    "kurmanci": "Tîpên Kurdî (Alfabe)", 
+    "sorani": "پیتەکانی کوردی" 
   },
   "vocabulary": [
     {
-      "word_id": "w01_01",
-      "kurmanci_latin": "Tîp / Harf",
-      "sorani_arami": "پیت",
-      "phonetic_kurmanci": "Tîp",
-      "phonetic_sorani": "Pît",
-      "meaning_tr": "Harf",
+      "word_id": "w01_a",
+      "kurmanci_latin": "A a",
+      "sorani_arami": "ا",
+      "phonetic_kurmanci": "A",
+      "phonetic_sorani": "Elif",
+      "meaning_tr": "A harfi (Uzun okunur)",
       "audio_url": { "kurmanci": null, "sorani": null },
       "description": {
-        "kurmanci": "Yekeya herî piçûk a nivîsînê.",
-        "sorani": "بچووکترین یەکەی نووسین."
+        "kurmanci": "Tîpa yekem a alfabeyê.",
+        "sorani": "یەکەم پیتی ئەلفوبێ."
       }
     },
     {
-      "word_id": "w01_02",
-      "kurmanci_latin": "Deng",
-      "sorani_arami": "دەنگ",
-      "phonetic_kurmanci": "Deng",
-      "phonetic_sorani": "Deng",
-      "meaning_tr": "Ses",
+      "word_id": "w01_b",
+      "kurmanci_latin": "B b",
+      "sorani_arami": "ب",
+      "phonetic_kurmanci": "Bê",
+      "phonetic_sorani": "Bê",
+      "meaning_tr": "B harfi",
       "audio_url": { "kurmanci": null, "sorani": null },
       "description": {
-        "kurmanci": "Tiştê ku bi dev tê gotin û bi guh tê bihîstin.",
-        "sorani": "ئەو شتەی بە دەم دەوترێت و بە گوێ دەبیسترێت."
+        "kurmanci": "Tîpa duyem a alfabeyê.",
+        "sorani": "دووەم پیتی ئەلفوبێ."
+      }
+    },
+    {
+      "word_id": "w01_c",
+      "kurmanci_latin": "C c",
+      "sorani_arami": "ج",
+      "phonetic_kurmanci": "Cîm",
+      "phonetic_sorani": "Cîm",
+      "meaning_tr": "C harfi",
+      "audio_url": { "kurmanci": null, "sorani": null },
+      "description": {
+        "kurmanci": "Bi Kurmancî û Soranî heman deng e.",
+        "sorani": "له هەردوو شێوەزارەکەدا هەمان دەنگە."
+      }
+    },
+    {
+      "word_id": "w01_v",
+      "kurmanci_latin": "V v",
+      "sorani_arami": "ڤ",
+      "phonetic_kurmanci": "Vê",
+      "phonetic_sorani": "Vê",
+      "meaning_tr": "V harfi",
+      "audio_url": { "kurmanci": null, "sorani": null },
+      "description": {
+        "kurmanci": "Di Soranî de bi sê xalan tê nivîsandin.",
+        "sorani": "لە سۆرانیدا بە سێ خاڵ دەنووسرێت."
+      }
+    },
+    {
+      "word_id": "w01_x",
+      "kurmanci_latin": "X x",
+      "sorani_arami": "خ",
+      "phonetic_kurmanci": "Xê",
+      "phonetic_sorani": "Xê",
+      "meaning_tr": "Hırıltılı H / X harfi",
+      "audio_url": { "kurmanci": null, "sorani": null },
+      "description": {
+        "kurmanci": "Dengê gırtlakê ye.",
+        "sorani": "دەنگی قوڕگ هاتووە."
       }
     }
   ],
-  "alphabet_data": {
-    "note": "Kurmancî uses 31 Latin letters. Soranî uses 34 Aramic/Perso-Arabic letters. Soranî explicitly writes out vowels.",
-    "kurmanci_alphabet": [
-      {"letter": "A a", "type": "vowel", "sound_like_tr": "Uzun A (Araba derken ilk A gibi)"},
-      {"letter": "B b", "type": "consonant", "sound_like_tr": "B"},
-      {"letter": "C c", "type": "consonant", "sound_like_tr": "C"},
-      {"letter": "Ç ç", "type": "consonant", "sound_like_tr": "Ç"},
-      {"letter": "D d", "type": "consonant", "sound_like_tr": "D"},
-      {"letter": "E e", "type": "vowel", "sound_like_tr": "Kısa ve açık E (Ben derken)"},
-      {"letter": "Ê ê", "type": "vowel", "sound_like_tr": "Kapalı ve uzun E (Kek derken)"},
-      {"letter": "F f", "type": "consonant", "sound_like_tr": "F"},
-      {"letter": "G g", "type": "consonant", "sound_like_tr": "G"},
-      {"letter": "H h", "type": "consonant", "sound_like_tr": "H (Bazen gırtlaktan)"},
-      {"letter": "I ı", "type": "vowel", "sound_like_tr": "Çok kısa ve yutulan I sesidir"},
-      {"letter": "Î î", "type": "vowel", "sound_like_tr": "Uzun İ (İncir derken)"},
-      {"letter": "J j", "type": "consonant", "sound_like_tr": "J"},
-      {"letter": "K k", "type": "consonant", "sound_like_tr": "K"},
-      {"letter": "L l", "type": "consonant", "sound_like_tr": "L"},
-      {"letter": "M m", "type": "consonant", "sound_like_tr": "M"},
-      {"letter": "N n", "type": "consonant", "sound_like_tr": "N"},
-      {"letter": "O o", "type": "vowel", "sound_like_tr": "O"},
-      {"letter": "P p", "type": "consonant", "sound_like_tr": "P (Sert/Patlamalı)"},
-      {"letter": "Q q", "type": "consonant", "sound_like_tr": "Gırtlaktan sert K / G arası ses"},
-      {"letter": "R r", "type": "consonant", "sound_like_tr": "R (Tek tık ve çok tık ayrımı vardır)"},
-      {"letter": "S s", "type": "consonant", "sound_like_tr": "S"},
-      {"letter": "Ş ş", "type": "consonant", "sound_like_tr": "Ş"},
-      {"letter": "T t", "type": "consonant", "sound_like_tr": "T"},
-      {"letter": "U u", "type": "vowel", "sound_like_tr": "Kısa U (Bazen I-U arası)"},
-      {"letter": "Û û", "type": "vowel", "sound_like_tr": "Uzun Ü/U arası (Uçak derken)"},
-      {"letter": "V v", "type": "consonant", "sound_like_tr": "V"},
-      {"letter": "W w", "type": "consonant", "sound_like_tr": "İngilizcedeki W gibi dudaklar yuvarlanarak"},
-      {"letter": "X x", "type": "consonant", "sound_like_tr": "Gırtlaktan hırıltılı H (Azerice X gibi)"},
-      {"letter": "Y y", "type": "consonant", "sound_like_tr": "Y"},
-      {"letter": "Z z", "type": "consonant", "sound_like_tr": "Z"}
-    ],
-    "sorani_alphabet": [
-      {"letter": "ئـ", "name": "Hemze", "equivalent_kurmanci": "Kelime başındaki seslilerden önce gelir"},
-      {"letter": "ا", "name": "Elif", "equivalent_kurmanci": "a"},
-      {"letter": "ب", "name": "Bê", "equivalent_kurmanci": "b"},
-      {"letter": "پ", "name": "Pê", "equivalent_kurmanci": "p"},
-      {"letter": "ت", "name": "Tê", "equivalent_kurmanci": "t"},
-      {"letter": "ج", "name": "Cîm", "equivalent_kurmanci": "c"},
-      {"letter": "چ", "name": "Çê", "equivalent_kurmanci": "ç"},
-      {"letter": "ح", "name": "Hê (Hâ)", "equivalent_kurmanci": "h (Gırtlaktan)"},
-      {"letter": "خ", "name": "Xê", "equivalent_kurmanci": "x"},
-      {"letter": "د", "name": "Dal", "equivalent_kurmanci": "d"},
-      {"letter": "ر", "name": "Rê (İnce)", "equivalent_kurmanci": "r"},
-      {"letter": "ڕ", "name": "Rê (Kalın/Sert)", "equivalent_kurmanci": "rr (Kurmancîde özel harfi yok)"},
-      {"letter": "ز", "name": "Zê", "equivalent_kurmanci": "z"},
-      {"letter": "ژ", "name": "Jê", "equivalent_kurmanci": "j"},
-      {"letter": "س", "name": "Sîn", "equivalent_kurmanci": "s"},
-      {"letter": "ش", "name": "Şîn", "equivalent_kurmanci": "ş"},
-      {"letter": "ع", "name": "Eyn", "equivalent_kurmanci": "Arapça kökenli gırtlak sesi"},
-      {"letter": "غ", "name": "Xeyn", "equivalent_kurmanci": "Yumuşak G'ye yakın hırıltı"},
-      {"letter": "ف", "name": "Fê", "equivalent_kurmanci": "f"},
-      {"letter": "ڤ", "name": "Vê", "equivalent_kurmanci": "v"},
-      {"letter": "ق", "name": "Qaf", "equivalent_kurmanci": "q"},
-      {"letter": "ک", "name": "Kaf", "equivalent_kurmanci": "k"},
-      {"letter": "گ", "name": "Gaf", "equivalent_kurmanci": "g"},
-      {"letter": "ل", "name": "Lam (İnce)", "equivalent_kurmanci": "l"},
-      {"letter": "ڵ", "name": "Lam (Kalın)", "equivalent_kurmanci": "ll (Kurmancîde özel harfi yok)"},
-      {"letter": "م", "name": "Mîm", "equivalent_kurmanci": "m"},
-      {"letter": "ن", "name": "Nûn", "equivalent_kurmanci": "n"},
-      {"letter": "و", "name": "Waw (Kısa)", "equivalent_kurmanci": "u / w"},
-      {"letter": "وو", "name": "Waw (Uzun)", "equivalent_kurmanci": "û"},
-      {"letter": "ۆ", "name": "O", "equivalent_kurmanci": "o"},
-      {"letter": "هـ", "name": "Hê", "equivalent_kurmanci": "h / e (Kelime sonunda 'e' okunur)"},
-      {"letter": "ێ", "name": "Ê", "equivalent_kurmanci": "ê"},
-      {"letter": "ی", "name": "Yê (Uzun)", "equivalent_kurmanci": "î / y"},
-      {"letter": "بێدەنگ", "name": "Yutulan I sesi", "equivalent_kurmanci": "ı (Soranîde harfi yoktur, kelime içinde okunur ama yazılmaz)"}
-    ]
-  },
   "questions": [
     {
       "question_id": "q01_01",
       "type": "multiple_choice",
       "level": "easy",
       "yonege": {
-        "kurmanci": "Tîpa Kurmancî 'X' di Soranî de bi kîjan tîpê tê nîşandan?",
-        "sorani": "پیتەکەی کورمانجی 'X' لە سۆرانیدا بە کام پیت نیشان دەدرێت؟"
+        "kurmanci": "Wateya peyva Soranî ya diyarkirî bi Kurmancî nîşan bide:",
+        "sorani": "واتای وشەی کورمانجی دیاریکراو بە سۆرانی نیشان بدە:"
       },
       "target_word": {
-        "kurmanci_user_sees": "X",
-        "sorani_user_sees": "خ"
+        "kurmanci_user_sees": "خ",
+        "sorani_user_sees": "X x"
       },
       "options": {
-        "for_kurmanci_user": ["ح", "خ", "غ", "ق"],
-        "for_sorani_user": ["X", "H", "Q", "W"]
+        "for_kurmanci_user": ["A a", "X x", "B b", "C c"],
+        "for_sorani_user": ["خ", "ا", "ب", "ج"]
       },
       "correct_index": { "kurmanci": 1, "sorani": 0 }
     },
@@ -129,44 +96,14 @@
       "type": "true_false",
       "level": "easy",
       "yonege": {
-        "kurmanci": "Gelo ev zanyariya jêrê rast e?",
-        "sorani": "ئایا ئەم زانیارییەی خوارەوە ڕاستە؟"
+        "kurmanci": "Gelo ev hevwateya jêrê rast e?",
+        "sorani": "ئایا ئەم هاوواتایەی خوارەوە ڕاستە؟"
       },
       "statement": {
-        "kurmanci": "Di alfabeya Soranî de tîpa 'I' (kısa ı) nayê nivîsandin, lê tê xwandin.",
-        "sorani": "لە ئەلفوبێی سۆرانیدا پیتی 'I' (بێدەنگ) نانووسرێت، بەڵام دەخوێندرێتەوە."
+        "kurmanci": "Hevwateya 'ڤ' bi Kurmancî 'V v' ye.",
+        "sorani": "هاوواتای 'V v' بە سۆرانی 'ڤ'ە."
       },
       "correct_answer": true
-    },
-    {
-      "question_id": "q01_03",
-      "type": "fill_in_the_blank",
-      "level": "medium",
-      "yonege": {
-        "kurmanci": "Cihê vala bi tîpa rast tije bike (Hevwateya Soranî ya tîpa 'Ç' nîşan bide):",
-        "sorani": "جێگای بەتاڵ بە پیتی ڕاست پڕ بکەرەوە (هاوواتای کورمانجی پیتی 'چ' نیشان بدە):"
-      },
-      "sentence": {
-        "kurmanci": { "prefix": "Tîpa 'Ç' di alfabeya Soranî de dibe '", "suffix": "'." },
-        "sorani":   { "prefix": "پیتی 'چ' لە ئەلفوبێی کورمانجیدا دەبێتە '",      "suffix": "'." }
-      },
-      "correct_blank": { "kurmanci": "چ", "sorani": "Ç" }
-    },
-    {
-      "question_id": "q01_04",
-      "type": "word_matching",
-      "level": "medium",
-      "yonege": {
-        "kurmanci": "Tîpên hevwate yên Kurmancî û Soranî li hev bîne:",
-        "sorani": "پیتە هاوواتاکانی کورمانجی و سۆرانی ڕێکبخە:"
-      },
-      "pairs": [
-        { "kurmanci": "V", "sorani": "ڤ" },
-        { "kurmanci": "P", "sorani": "پ" },
-        { "kurmanci": "O", "sorani": "ۆ" },
-        { "kurmanci": "Ê", "sorani": "ێ" }
-      ]
     }
   ]
-      }
-        
+}
