@@ -1,0 +1,3 @@
+-keep class com.heftreng.kurdi.data.model.** { *; }
+-keepattributes *Annotation*
+-dontwarn kotlinx.serialization.**

@@ -1,0 +1,17 @@
+{
+  "versiyon": "1.0.0",
+  "son_guncelleme": "2026-06-16",
+  "cdn_base_primary":  "https://raw.githubusercontent.com/heftreng49/kurdi/main/data/units/",
+  "cdn_base_fallback": "https://heftreng49.github.io/kurdi/data/units/",
+  "units": [
+    {
+      "unit_id":       "u01_tanisma",
+      "unit_order":    1,
+      "unit_title":    { "kurmanci": "Silaftî û Naskirin", "sorani": "سلاوکردن و ناسیاوی" },
+      "icon":          "👋",
+      "kelime_sayisi": 3,
+      "soru_sayisi":   4,
+      "dosya":         "u01_tanisma.json"
+    }
+  ]
+}
