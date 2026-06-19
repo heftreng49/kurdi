@@ -1,0 +1,85 @@
+{
+  "unit_id": "u02_renkler",
+  "unit_order": 2,
+  "unit_title": { "kurmanci": "Reng û Şêwaz", "sorani": "ڕەنگ و شێواز" },
+  "vocabulary": [
+    {
+      "word_id": "w02_01",
+      "kurmanci_latin": "Sor",
+      "sorani_arami": "سوور",
+      "phonetic_kurmanci": "Sor",
+      "phonetic_sorani": "Suwr",
+      "meaning_tr": "Kırmızı",
+      "audio_url": { "kurmanci": null, "sorani": null },
+      "description": { "kurmanci": "Rengê xwînê.", "sorani": "ڕەنگی خوێن." }
+    },
+    {
+      "word_id": "w02_02",
+      "kurmanci_latin": "Kesk",
+      "sorani_arami": "سەوز",
+      "phonetic_kurmanci": "Kesk",
+      "phonetic_sorani": "Sewz",
+      "meaning_tr": "Yeşil",
+      "audio_url": { "kurmanci": null, "sorani": null },
+      "description": { "kurmanci": "Rengê giya û daran.", "sorani": "ڕەنگی گیا و دار." }
+    },
+    {
+      "word_id": "w02_03",
+      "kurmanci_latin": "Şîn",
+      "sorani_arami": "شین",
+      "phonetic_kurmanci": "Şîn",
+      "phonetic_sorani": "Şîn",
+      "meaning_tr": "Mavi",
+      "audio_url": { "kurmanci": null, "sorani": null },
+      "description": { "kurmanci": "Rengê ezman û deryayê.", "sorani": "ڕەنگی ئاسمان و دەریا." }
+    }
+  ],
+  "questions": [
+    {
+      "question_id": "q02_01",
+      "type": "multiple_choice",
+      "level": "easy",
+      "yonege": {
+        "kurmanci": "Wateya peyva Soranî ya diyarkirî bi Kurmancî nîşan bide:",
+        "sorani": "واتای وشەی کورمانجی دیاریکراو بە سۆرانی نیشان بدە:"
+      },
+      "target_word": {
+        "kurmanci_user_sees": "سوور",
+        "sorani_user_sees": "Sor"
+      },
+      "options": {
+        "for_kurmanci_user": ["Kesk", "Şîn", "Sor", "Zer"],
+        "for_sorani_user": ["سەوز", "شین", "سوور", "زەرد"]
+      },
+      "correct_index": { "kurmanci": 2, "sorani": 2 }
+    },
+    {
+      "question_id": "q02_02",
+      "type": "true_false",
+      "level": "easy",
+      "yonege": {
+        "kurmanci": "Gelo ev hevwateya jêrê rast e?",
+        "sorani": "ئایا ئەم هاوواتایەی خوارەوە ڕاستە؟"
+      },
+      "statement": {
+        "kurmanci": "Hevwateya 'سەوز' bi Kurmancî 'Kesk' e.",
+        "sorani": "هاوواتای 'Kesk' بە سۆرانی 'سەوز'ە."
+      },
+      "correct_answer": true
+    },
+    {
+      "question_id": "q02_03",
+      "type": "word_matching",
+      "level": "medium",
+      "yonege": {
+        "kurmanci": "Peyvên hevwate yên Kurmancî û Soranî li hev bîne:",
+        "sorani": "وشە هاوواتاکانی کورمانجی و سۆرانی ڕێکبخە:"
+      },
+      "pairs": [
+        { "kurmanci": "Sor",  "sorani": "سوور" },
+        { "kurmanci": "Kesk", "sorani": "سەوز" },
+        { "kurmanci": "Şîn",  "sorani": "شین" }
+      ]
+    }
+  ]
+}

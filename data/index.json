@@ -1,17 +1,44 @@
 {
-  "versiyon": "1.0.0",
-  "son_guncelleme": "2026-06-16",
-  "cdn_base_primary":  "https://raw.githubusercontent.com/heftreng49/kurdi/main/data/units/",
+  "versiyon": "1.0.2",
+  "son_guncelleme": "2026-06-19",
+  "cdn_base_primary": "https://raw.githubusercontent.com/heftreng49/kurdi/main/data/units/",
   "cdn_base_fallback": "https://heftreng49.github.io/kurdi/data/units/",
   "units": [
     {
-      "unit_id":       "u01_tanisma",
-      "unit_order":    1,
-      "unit_title":    { "kurmanci": "Silaftî û Naskirin", "sorani": "سلاوکردن و ناسیاوی" },
-      "icon":          "👋",
+      "unit_id": "u01_tanisma",
+      "unit_order": 1,
+      "unit_title": {
+        "kurmanci": "Silaftî û Naskirin",
+        "sorani": "سلاوکردن و ناسیاوی"
+      },
+      "icon": "👋",
       "kelime_sayisi": 3,
-      "soru_sayisi":   4,
-      "dosya":         "u01_tanisma.json"
+      "soru_sayisi": 4,
+      "dosya": "u01_tanisma.json"
+    },
+    {
+      "unit_id": "u01_tanisma",
+      "unit_order": 2,
+      "unit_title": {
+        "kurmanci": "Tîpên Kurdî (Alfabe)",
+        "sorani": "پیتەکانی کوردی"
+      },
+      "icon": "📖",
+      "kelime_sayisi": 5,
+      "soru_sayisi": 2,
+      "dosya": "u02_alfabe.json"
+    },
+    {
+      "unit_id": "u02_renkler",
+      "unit_order": 2,
+      "unit_title": {
+        "kurmanci": "Reng û Şêwaz",
+        "sorani": "ڕەنگ و شێواز"
+      },
+      "icon": "📖",
+      "kelime_sayisi": 3,
+      "soru_sayisi": 3,
+      "dosya": "u02_renkler.json"
     }
   ]
 }
