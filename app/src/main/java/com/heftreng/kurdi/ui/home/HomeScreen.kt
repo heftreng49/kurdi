@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -13,7 +14,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.heftreng.kurdi.data.model.UniteMeta
+import com.heftreng.kurdi.util.AppLanguage
 import com.heftreng.kurdi.util.LearningMode
+import com.heftreng.kurdi.util.Strings.t
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -23,14 +26,15 @@ fun HomeScreen(
     vm: HomeViewModel = viewModel()
 ) {
     val state by vm.uiState.collectAsState()
+    val lang = state.appLanguage
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Kurdî", fontWeight = FontWeight.Bold) },
+                title = { Text(t(lang, "app_name"), fontWeight = FontWeight.Bold) },
                 actions = {
                     IconButton(onClick = onSettingsClick) {
-                        Icon(Icons.Default.Settings, contentDescription = "Ayarlar")
+                        Icon(Icons.Default.Settings, contentDescription = t(lang, "settings_title"))
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -49,9 +53,9 @@ fun HomeScreen(
                     Modifier.align(Alignment.Center),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Text("Bağlantı hatası", style = MaterialTheme.typography.titleMedium)
+                    Text(t(lang, "connection_error"), style = MaterialTheme.typography.titleMedium)
                     Spacer(Modifier.height(8.dp))
-                    Button(onClick = vm::uniteleriYukle) { Text("Tekrar Dene") }
+                    Button(onClick = vm::uniteleriYukle) { Text(t(lang, "retry")) }
                 }
 
                 else -> LazyColumn(
@@ -59,7 +63,7 @@ fun HomeScreen(
                     verticalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
                     item {
-                        ModBilgiBandı(state.learningMode)
+                        ModBilgiBandı(state.learningMode, lang)
                         Spacer(Modifier.height(8.dp))
                     }
                     items(state.uniteler, key = { it.unitId }) { unite ->
@@ -67,6 +71,7 @@ fun HomeScreen(
                         UniteKart(
                             unite        = unite,
                             mode         = state.learningMode,
+                            lang         = lang,
                             tamamlandi   = ilerleme?.tamamlandiMi ?: false,
                             yildiz       = ilerleme?.yildiz ?: 0,
                             onClick      = { onUniteClick(unite.dosya) }
@@ -79,11 +84,11 @@ fun HomeScreen(
 }
 
 @Composable
-private fun ModBilgiBandı(mode: LearningMode) {
+private fun ModBilgiBandı(mode: LearningMode, lang: AppLanguage) {
     val metin = if (mode.isKurmanci())
-        "Kurmancî → Soranî öğreniyorsun"
+        t(lang, "home_mode_kurmanci_sorani")
     else
-        "Soranî → Kurmancî öğreniyorsun"
+        t(lang, "home_mode_sorani_kurmanci")
 
     Surface(
         color = MaterialTheme.colorScheme.secondaryContainer,
@@ -103,6 +108,7 @@ private fun ModBilgiBandı(mode: LearningMode) {
 private fun UniteKart(
     unite: UniteMeta,
     mode: LearningMode,
+    lang: AppLanguage,
     tamamlandi: Boolean,
     yildiz: Int,
     onClick: () -> Unit
@@ -124,7 +130,7 @@ private fun UniteKart(
                 Text(baslik, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
                 Spacer(Modifier.height(4.dp))
                 Text(
-                    "${unite.kelimeSayisi} kelime · ${unite.soruSayisi} soru",
+                    "${unite.kelimeSayisi} ${t(lang, "home_words_questions")} · ${unite.soruSayisi} ${t(lang, "home_questions_label")}",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -139,7 +145,7 @@ private fun UniteKart(
             if (tamamlandi) {
                 Icon(
                     imageVector = Icons.Default.Settings, // checkmark placeholder
-                    contentDescription = "Tamamlandı",
+                    contentDescription = null,
                     tint = MaterialTheme.colorScheme.primary
                 )
             }

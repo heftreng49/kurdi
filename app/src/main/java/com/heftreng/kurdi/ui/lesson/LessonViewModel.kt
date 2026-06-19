@@ -10,6 +10,7 @@ import com.heftreng.kurdi.data.model.Kelime
 import com.heftreng.kurdi.data.model.Soru
 import com.heftreng.kurdi.data.remote.NetworkModule
 import com.heftreng.kurdi.data.repository.KurdiRepository
+import com.heftreng.kurdi.util.AppLanguage
 import com.heftreng.kurdi.util.LearningMode
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -26,6 +27,7 @@ data class LessonUiState(
     val mevcutIndex: Int = 0,
     val dogruSayisi: Int = 0,
     val learningMode: LearningMode = LearningMode.KURMANCI_TO_SORANI,
+    val appLanguage: AppLanguage = AppLanguage.TR,
     val bitti: Boolean = false
 ) {
     val mevcutAdim: DersAdimi? get() = adimlar.getOrNull(mevcutIndex)
@@ -53,7 +55,8 @@ class LessonViewModel(app: Application) : AndroidViewModel(app) {
         uniteDosya = dosya
         viewModelScope.launch {
             val mode = tercih.learningModeAkisi.first()
-            _uiState.update { it.copy(yukleniyorMu = true, learningMode = mode) }
+            val lang = tercih.appLanguageAkisi.first()
+            _uiState.update { it.copy(yukleniyorMu = true, learningMode = mode, appLanguage = lang) }
 
             repository.uniteGetir(dosya)
                 .onSuccess { unite ->

@@ -10,7 +10,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.heftreng.kurdi.data.model.Soru
+import com.heftreng.kurdi.util.AppLanguage
 import com.heftreng.kurdi.util.LearningMode
+import com.heftreng.kurdi.util.Strings.t
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -21,6 +23,7 @@ fun LessonScreen(
     vm: LessonViewModel = viewModel()
 ) {
     val state by vm.uiState.collectAsState()
+    val lang = state.appLanguage
 
     LaunchedEffect(uniteDosya) { vm.uniteYukle(uniteDosya) }
 
@@ -64,14 +67,15 @@ fun LessonScreen(
                     Modifier.align(Alignment.Center),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Text("Ünite yüklenemedi")
+                    Text(t(lang, "lesson_load_error"))
                     Spacer(Modifier.height(8.dp))
-                    Button(onClick = { vm.uniteYukle(uniteDosya) }) { Text("Tekrar Dene") }
+                    Button(onClick = { vm.uniteYukle(uniteDosya) }) { Text(t(lang, "retry")) }
                 }
 
                 state.mevcutAdim != null -> AdimIcerigi(
                     adim        = state.mevcutAdim!!,
                     mode        = state.learningMode,
+                    lang        = lang,
                     onDogru     = vm::dogruCevap,
                     onYanlis    = vm::yanlisCevap,
                     onDevam     = vm::sonrakiAdim
@@ -85,13 +89,14 @@ fun LessonScreen(
 private fun AdimIcerigi(
     adim: DersAdimi,
     mode: LearningMode,
+    lang: AppLanguage,
     onDogru: () -> Unit,
     onYanlis: () -> Unit,
     onDevam: () -> Unit
 ) {
     when (adim) {
-        is DersAdimi.VocabAdimi -> VocabKart(adim.kelime, mode, onDevam)
-        is DersAdimi.SoruAdimi  -> SoruIcerigi(adim.soru, mode, onDogru, onYanlis)
+        is DersAdimi.VocabAdimi -> VocabKart(adim.kelime, mode, onDevam, lang)
+        is DersAdimi.SoruAdimi  -> SoruIcerigi(adim.soru, mode, lang, onDogru, onYanlis)
     }
 }
 
@@ -99,7 +104,8 @@ private fun AdimIcerigi(
 private fun VocabKart(
     kelime: com.heftreng.kurdi.data.model.Kelime,
     mode: LearningMode,
-    onDevam: () -> Unit
+    onDevam: () -> Unit,
+    lang: AppLanguage
 ) {
     val anaKelime = if (mode.isKurmanci()) kelime.kurmanciLatin else kelime.soraniArami
     val ceviriKelime = if (mode.isKurmanci()) kelime.soraniArami else kelime.kurmanciLatin
@@ -135,7 +141,7 @@ private fun VocabKart(
         }
         Spacer(Modifier.height(32.dp))
         Button(onClick = onDevam, modifier = Modifier.fillMaxWidth()) {
-            Text("Devam →")
+            Text(t(lang, "lesson_continue"))
         }
     }
 }
@@ -144,6 +150,7 @@ private fun VocabKart(
 private fun SoruIcerigi(
     soru: Soru,
     mode: LearningMode,
+    lang: AppLanguage,
     onDogru: () -> Unit,
     onYanlis: () -> Unit
 ) {
@@ -156,9 +163,9 @@ private fun SoruIcerigi(
 
         when (soru) {
             is Soru.MultipleChoice  -> MultipleChoiceView(soru, mode, onDogru, onYanlis)
-            is Soru.TrueFalse       -> TrueFalseView(soru, mode, onDogru, onYanlis)
-            is Soru.FillInTheBlank  -> FillBlankView(soru, mode, onDogru, onYanlis)
-            is Soru.WordMatching    -> WordMatchingView(soru, mode, onDogru)
+            is Soru.TrueFalse       -> TrueFalseView(soru, mode, lang, onDogru, onYanlis)
+            is Soru.FillInTheBlank  -> FillBlankView(soru, mode, lang, onDogru, onYanlis)
+            is Soru.WordMatching    -> WordMatchingView(soru, mode, lang, onDogru)
         }
     }
 }
@@ -208,6 +215,7 @@ fun MultipleChoiceView(
 fun TrueFalseView(
     soru: Soru.TrueFalse,
     mode: LearningMode,
+    lang: AppLanguage,
     onDogru: () -> Unit,
     onYanlis: () -> Unit
 ) {
@@ -223,11 +231,11 @@ fun TrueFalseView(
             onClick = { if (soru.correctAnswer) onDogru() else onYanlis() },
             modifier = Modifier.weight(1f),
             colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
-        ) { Text("✓ Doğru") }
+        ) { Text(t(lang, "lesson_true")) }
         OutlinedButton(
             onClick = { if (!soru.correctAnswer) onDogru() else onYanlis() },
             modifier = Modifier.weight(1f)
-        ) { Text("✗ Yanlış") }
+        ) { Text(t(lang, "lesson_false")) }
     }
 }
 
@@ -235,6 +243,7 @@ fun TrueFalseView(
 fun FillBlankView(
     soru: Soru.FillInTheBlank,
     mode: LearningMode,
+    lang: AppLanguage,
     onDogru: () -> Unit,
     onYanlis: () -> Unit
 ) {
@@ -262,19 +271,20 @@ fun FillBlankView(
         },
         modifier = Modifier.fillMaxWidth(),
         enabled = !kontrol
-    ) { Text("Kontrol Et") }
+    ) { Text(t(lang, "lesson_check")) }
 }
 
 @Composable
 fun WordMatchingView(
     soru: Soru.WordMatching,
     mode: LearningMode,
+    lang: AppLanguage,
     onBitti: () -> Unit
 ) {
     var eslesmeler by remember { mutableStateOf(0) }
     val toplam = soru.pairs.size
 
-    Text("${eslesmeler}/${toplam} eşleşti", style = MaterialTheme.typography.labelLarge)
+    Text("${eslesmeler}/${toplam} ${t(lang, "lesson_matched")}", style = MaterialTheme.typography.labelLarge)
     Spacer(Modifier.height(12.dp))
 
     soru.pairs.forEach { pair ->
@@ -293,5 +303,5 @@ fun WordMatchingView(
     }
 
     Spacer(Modifier.height(16.dp))
-    Button(onClick = onBitti, Modifier.fillMaxWidth()) { Text("Tamamlandı →") }
+    Button(onClick = onBitti, Modifier.fillMaxWidth()) { Text(t(lang, "lesson_done")) }
 }

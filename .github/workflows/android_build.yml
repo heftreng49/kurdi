@@ -8,34 +8,71 @@ on:
     branches: [ "main" ]
 
 jobs:
+  # ── JOB 1: index.json'u otomatik güncelle ─────────────────────────────────
+  update-index:
+    name: index.json Otomatik Güncelle
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Python ile index.json Yeniden Oluştur
+        run: |
+          python3 .github/scripts/update_index.py
+
+      - name: Değişiklik Varsa Commit Et
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add data/index.json
+          git diff --staged --quiet || git commit -m "ci: index.json otomatik güncellendi [skip ci]"
+          git push
+
+  # ── JOB 2: Test + Lint + Debug APK ────────────────────────────────────────
   build:
     name: Test + Lint + Debug APK
     runs-on: ubuntu-latest
+    needs: update-index
+    if: always()
+
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main   # update-index'in commit'ini al
+
       - uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: '17'
           cache: 'gradle'
+
       - name: Gradle Kur
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
+
       - run: gradle test
       - run: gradle lintDebug
       - run: gradle assembleDebug
+
       - uses: actions/upload-artifact@v4
         with:
           name: kurdi-debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
           retention-days: 14
 
+  # ── JOB 3: Release APK (sadece tag'de) ────────────────────────────────────
   release:
-    name: Release APK (sadece tag'de)
+    name: Release APK
     runs-on: ubuntu-latest
     needs: build
     if: startsWith(github.ref, 'refs/tags/v')
+
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
@@ -43,8 +80,7 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
           cache: 'gradle'
-      - name: Gradle Kur
-        uses: gradle/actions/setup-gradle@v4
+      - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
       - run: gradle assembleRelease
@@ -55,6 +91,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  # ── JOB 4: JSON → GitHub Pages ────────────────────────────────────────────
   deploy-data:
     name: JSON → GitHub Pages
     runs-on: ubuntu-latest
@@ -62,8 +99,11 @@ jobs:
     if: github.ref == 'refs/heads/main'
     permissions:
       contents: write
+
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -20,6 +20,13 @@ class KurdiRepository(
     private suspend fun <T> withFallback(block: suspend (KurdiApiService) -> T): T =
         try { block(primaryApi) } catch (e: Exception) { block(fallbackApi) }
 
+    // Pull-to-refresh: cache'i sıfırla, bir sonraki indexGetir() çağrısı yeni veri çeker
+    fun cacheSifirla() {
+        indexCache = null
+        indexCacheTime = 0L
+        uniteCache.clear()
+    }
+
     suspend fun indexGetir(): Result<IndexResponse> = runCatching {
         val now = System.currentTimeMillis()
         // 24 saatlik cache — 60 istek/saat rate limitine karşı koruma
