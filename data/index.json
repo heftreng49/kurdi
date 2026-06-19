@@ -1,5 +1,5 @@
 {
-  "versiyon": "1.0.1",
+  "versiyon": "1.0.2",
   "son_guncelleme": "2026-06-19",
   "cdn_base_primary": "https://raw.githubusercontent.com/heftreng49/kurdi/main/data/units/",
   "cdn_base_fallback": "https://heftreng49.github.io/kurdi/data/units/",
@@ -15,6 +15,18 @@
       "kelime_sayisi": 3,
       "soru_sayisi": 4,
       "dosya": "u01_tanisma.json"
+    },
+    {
+      "unit_id": "u01_tanisma",
+      "unit_order": 2,
+      "unit_title": {
+        "kurmanci": "Tîpên Kurdî (Alfabe)",
+        "sorani": "پیتەکانی کوردی"
+      },
+      "icon": "📖",
+      "kelime_sayisi": 5,
+      "soru_sayisi": 2,
+      "dosya": "u02_alfabe.json"
     },
     {
       "unit_id": "u02_renkler",
