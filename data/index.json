@@ -17,18 +17,6 @@
       "dosya": "u01_tanisma.json"
     },
     {
-      "unit_id": "u01_tanisma",
-      "unit_order": 2,
-      "unit_title": {
-        "kurmanci": "Tîpên Kurdî (Alfabe)",
-        "sorani": "پیتەکانی کوردی"
-      },
-      "icon": "📖",
-      "kelime_sayisi": 5,
-      "soru_sayisi": 2,
-      "dosya": "u02_alfabe.json"
-    },
-    {
       "unit_id": "u02_renkler",
       "unit_order": 2,
       "unit_title": {
